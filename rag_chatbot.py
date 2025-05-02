@@ -23,7 +23,7 @@ if hf_token:
 
     # Load restaurant data
     try:
-        with open("restaurants_data.json", "r", encoding="utf-8") as f:
+        with open("/content/Nugget-Assignment/restaurants_data.json", "r", encoding="utf-8") as f:
             data = json.load(f)
     except Exception as e:
         st.error(f"Error loading data: {e}")

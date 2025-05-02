@@ -43,7 +43,7 @@ if hf_token:
         documents.append(Document(page_content=content, metadata={"source": restaurant.get("name")}))
 
     # Model selection and loading
-    model = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+    model="meta-llama/Llama-2-7b-chat-hf"
     with st.spinner("Loading model and tokenizer..."):
         tokenizer = AutoTokenizer.from_pretrained(model)
         pipe = transformers.pipeline(

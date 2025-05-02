@@ -1,0 +1,11 @@
+requests
+beautifulsoup4
+lxml
+torch
+transformers
+langchain
+faiss-cpu
+sentence-transformers
+huggingface-hub
+langchain_community
+langchain_huggingface

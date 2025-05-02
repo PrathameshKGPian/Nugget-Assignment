@@ -3,7 +3,7 @@ import warnings
 import json
 import torch
 import transformers
-from transformers import AutoTokenizer
+from transformers import AutoTokenizer, pipeline
 from huggingface_hub import login
 from langchain_huggingface import HuggingFaceEmbeddings, HuggingFacePipeline
 from langchain.vectorstores import FAISS
@@ -11,19 +11,13 @@ from langchain.chains import create_retrieval_chain
 from langchain_core.prompts import PromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.schema import Document
-from kaggle_secrets import UserSecretsClient
+
 warnings.filterwarnings('ignore')
 
 st.title("Restaurant Q&A with LLM")
 
-# Suppress warnings
-warnings.filterwarnings('ignore')
-
-# Authenticate with Hugging Face Hub
-user_secrets = UserSecretsClient()
-hf_token = user_secrets.get_secret("hf_token")
-
 # Hugging Face Token Input
+hf_token = st.text_input("Enter your Hugging Face Hub token:", type="password")
 if hf_token:
     login(token=hf_token)
 
